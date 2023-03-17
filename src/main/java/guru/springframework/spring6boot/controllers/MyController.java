@@ -1,5 +1,7 @@
 package guru.springframework.spring6boot.controllers;
 
+import guru.springframework.spring6boot.services.GreatingService;
+import guru.springframework.spring6boot.services.GreatingServiceImpl;
 import org.springframework.stereotype.Controller;
 
 /**
@@ -10,9 +12,15 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class MyController {
 
+    private final GreatingService greatingService;
+
+    public MyController() {
+        this.greatingService = new GreatingServiceImpl();
+    }
+
     public String sayHello(){
         System.out.println("I'm in a controller");
 
-        return "Hello Everyone";
+        return greatingService.sayGreeting();
     }
 }
