@@ -1,6 +1,7 @@
 package guru.springframework.spring6boot.controllers;
 
-import guru.springframework.spring6boot.services.GreatingService;
+import guru.springframework.spring6boot.services.GreetingService;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 /**
@@ -10,13 +11,13 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class ConstructorInjectedController {
 
-    private final GreatingService greatingService;
+    private final GreetingService greetingService;
 
-    public ConstructorInjectedController(GreatingService greatingService) {
-        this.greatingService = greatingService;
+    public ConstructorInjectedController(@Qualifier("greetingServiceImpl") GreetingService greetingService) {
+        this.greetingService = greetingService;
     }
 
     public String sayHello(){
-        return greatingService.sayGreeting();
+        return greetingService.sayGreeting();
     }
 }
