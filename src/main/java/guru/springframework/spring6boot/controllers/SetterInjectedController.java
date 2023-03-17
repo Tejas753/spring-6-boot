@@ -11,9 +11,9 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class SetterInjectedController {
 
-    @Autowired
     private GreatingService greatingService;
 
+    @Autowired
     public void setGreatingService(GreatingService greatingService) {
         this.greatingService = greatingService;
     }
