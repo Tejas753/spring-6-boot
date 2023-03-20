@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
  * @author : tejas
  * @created : 3/17/23, Friday
  **/
-@Profile("ES")
+@Profile({"ES"})
 @Service("i18NService")
 public class SpanishGreetingService implements GreetingService {
     @Override
